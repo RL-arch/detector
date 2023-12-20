@@ -209,7 +209,7 @@ The network needs to stay on and be able to connect to Google to download initia
 
 
 
-## Acknowledgements 
+## Acknowledgements and model training guidance:
 
 * [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 * [https://github.com/ZhihengCV/Bayesian-Crowd-Counting](https://github.com/ZhihengCV/Bayesian-Crowd-Counting)
