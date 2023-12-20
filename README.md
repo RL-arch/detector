@@ -147,7 +147,7 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
   `output_folder = <same as in detect_1.py>`
 
-    load the trained model to count the swelling organoids, which is an yolov7 model, we put the model in the directory _/trained_models/yolov7/last.pt_. Copy and paste the location of this file into the path:
+    load the trained model to count the swelling organoids, which is a yolov7 model, we put the model in the directory _/trained_models/yolov7/last.pt_. Copy and paste the location of this file into the path:
 
     `model_yolov7 = <the path of trained yolov7 model>`
 
@@ -157,7 +157,7 @@ Now, the modifications are completed.
 
 
 ### 4. Run the codes
-### (Operations under _/cfanalyzer_ folder)
+### (Operations under _/detector_ folder)
 
 *****************
 
@@ -169,9 +169,9 @@ Now, the modifications are completed.
 **Option2**
 ### Run on terminal:
 
- open terminal in this folder and
+ open the terminal in this folder and
 
-`cd bayersian`
+`cd bayesian`
 
 Then, run the code:
 
@@ -197,15 +197,15 @@ The indications are shown on the terminal.
 
 The brightness of the microscopic image will influence the results of total number estimation. When the image condition is dark and dense crowd, the total number estimate can be less than actual.
 
-The position shift will infludence the swelling organoids detection, will make less organoids detected. 
+The position shift will influence the swelling organoids detection and will make fewer organoids detected. 
 
 ### 2 Fonts
 
-Fonts in different OS have different routes, may need to modify in `bayersian/utils/count.py `  (line 52~55)
+Fonts in different OS have different routes and may need to modify in `bayersian/utils/count.py `  (line 52~55)
 
 ### 3 Internet connection
 
-Network needs to stay on and be able to connect Google to download initial files like model weights.
+The network needs to stay on and be able to connect to Google to download initial files like model weights.
 
 
 
