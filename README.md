@@ -2,7 +2,9 @@
 
 Implementation the software in paper - [Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells] (https://)
 
-This code count the total number of the organoids in each image, and detect the swelling organoids after gene editing.
+This code count the total number of organoids in each image, and detect the swelling organoids after gene editing.
+
+To address the inaccuracy of existing image segmentation and detection for dense organoids, we divided the task into two: 1, to count the total number using Bayesian Crowd Counting; 2, to detect the small populations of growing targets using YOLOv7.
 
 ## Datasets and Trained models
 
