@@ -4,11 +4,13 @@ Implementation the software in paper - [Prime editing functionally corrects Cyst
 
 This code count the total number of the organoids in each image, and detect the swelling organoids after gene editing.
 
-## Datasets
+## Datasets and Trained models
 
 Images for detection: [] (https://)
 
 Datasets for training: [] (https://)
+
+Trained models: [] (https://)
 
 ## Citation
 
