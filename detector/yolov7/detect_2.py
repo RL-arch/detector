@@ -376,8 +376,8 @@ if __name__ == '__main__':
     conf_thred = 0.3
     # ! modify the paths here:
     # --------------------------------------------------------------------------------------
-    model_yolov7 = '/Users/bunkyotop/Library/CloudStorage/OneDrive-KULeuven/code/CF/CFAnalyzer/trained_models/yolov7/last.pt'
-    output_folder = '/Users/bunkyotop/Documents/Iamges/Output'
+    model_yolov7 = './trained_models/yolov7/last.pt'
+    output_folder = './Output'
     # --------------------------------------------------------------------------------------
     diff_images = f'{output_folder}/diff_images'
     do_detect(model_yolov7, diff_images, img_size, conf_thred, output_folder)
