@@ -11,11 +11,11 @@ image_size = 512
 #-----------------------------------------------------------------------------------
 # ! Modify the paths and file name prefixs here
 # folder with all the images
-folder_images = "/Users/bunkyotop/Documents/Iamges/Input"
+folder_images = "./Input"
 # path for the model to count organoids
-model_baylos = "/Users/bunkyotop/Library/CloudStorage/OneDrive-KULeuven/code/CF/CFAnalyzer/trained_models/bayersian/best_model.pth"
+model_baylos = "./trained_models/bayersian/best_model.pth"
 # where you want to store the results
-output_folder = "/Users/bunkyotop/Documents/Iamges/Output"
+output_folder = "./Output"
 
 prefix = []
 # prefix.append("242-CF PE FIS1 20210705 timelapse-01")
