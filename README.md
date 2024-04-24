@@ -10,9 +10,9 @@ This code serves two purposes: firstly, it accurately counts the total number of
 <img src=20240422_Detector_GitHub-scheme-1.png>
 </p>
 
-**a** Organoids swelling with CFTR gene editing;
-**b** Bayesian Crowd Counting for dense organoids & Swelling detection;
-**c** Swelling detection results
+**a)** Organoids swelling with CFTR gene editing;
+**b)** Bayesian Crowd Counting for dense organoids & Swelling detection;
+**c)** Swelling detection results
 
 ## Datasets and Trained models
 
