@@ -1,18 +1,28 @@
-# DETECTOR
+# DETECTOR: AI-based Organoid Dectection for Automated FIS Analysis
 
-Implementation the software in paper - [Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells] (https://)
+Implementation the software in paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://)** (Cell reports Medicine, Accepted)
 
 This code count the total number of organoids in each image, and detect the swelling organoids after gene editing.
 
 To address the inaccuracy of existing image segmentation and detection for dense organoids, we divided the task into two: 1, to count the total number using Bayesian Crowd Counting; 2, to detect the small populations of growing targets using YOLOv7.
 
+## Overview
+
+<p align="center">
+<img src=20240422_Detector_GitHub-scheme-1.png>
+</p>
+
+**a** Organoids swelling with CFTR gene editing;
+**b** Bayersian Crowd Counting startegy for dense organoids & Swelling detction;
+**c** Swelling derecion results
+
 ## Datasets and Trained models
 
-Images for detection: [] (https://)
+[Images for detection](https://)
 
-Datasets for training: [] (https://)
+[Datasets for training](https://)
 
-Trained models: [] (https://)
+[Trained models](https://)
 
 ## Citation
 
