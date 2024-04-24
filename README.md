@@ -1,6 +1,6 @@
 # DETECTOR: AI-based Organoid Detection for Automated FIS Analysis
 
-Implementation the software in paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://)** (Cell reports Medicine, Accepted)
+Implementation the software in paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://)** (Cell Reports Medicine)
 
 This code serves two purposes: firstly, it accurately counts the total number of organoids in each image using Bayesian Crowd Counting, resolving the issue of segmentation inaccuracy in dense organoids. Secondly, it identifies swelling organoids resulting from gene editing using YOLOv7.
 
