@@ -27,7 +27,15 @@ This code serves two purposes: firstly, it accurately counts the total number of
 If you use this code for your research, please cite our paper:
 
 ```bibtex
-{bibtex of the paper}
+@article{bulcaenPrimeEditingFunctionally2024,
+  title = {Prime Editing Functionally Corrects Cystic Fibrosis-Causing {{CFTR}} Mutations in Human Organoids and Airway Epithelial Cells},
+  author = {Bulcaen, Mattijs and Kortleven, Phéline and Liu, Ronald B. and Maule, Giulia and Dreano, Elise and Kelly, Mairead and Ensinck, Marjolein M. and Thierie, Sam and Smits, Maxime and Ciciani, Matteo and Hatton, Aurelie and Chevalier, Benoit and Ramalho, Anabela S. and family=Solvas, given=Xavier Casadevall, prefix=i, useprefix=false and Debyser, Zeger and Vermeulen, François and Gijsbers, Rik and Sermet-Gaudelus, Isabelle and Cereseto, Anna and Carlon, Marianne S.},
+  date = {2024-05-01},
+  journaltitle = {Cell Reports Medicine},
+  issn = {2666-3791},
+  doi = {10.1016/j.xcrm.2024.101544},
+  url = {https://www.cell.com/cell-reports-medicine/abstract/S2666-3791(24)00234-9}
+}
 ```
 
 ## Installation and Run
