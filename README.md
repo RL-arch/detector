@@ -38,9 +38,9 @@ If you use this code for your research, please cite our paper:
 
 Examples of the images used for testing can be found in the [data](./data/Input/) folder.
 
-Examples of the results can be found in the [data](./data/Output/) folder.
+Examples of the results can be found in the [](./data/Output/) folder.
 
-Trained models can be downloaded from the [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing), and place under the [data](./data/) folder, following the folder classes under [trained_model](./data/trained_models/).
+Trained models please download from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing). The folder organization is same as the [data/trained_models](./data/trained_models/) folder.
 
 ## Installation and Run
 ### 1. Environment Setup
