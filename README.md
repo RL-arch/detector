@@ -88,7 +88,7 @@ pip install seaborn thop
 
 ### 2. Prepare the data you want to analyze
 ***************************************************
-2.1 Organize your iamge folder
+2.1 Organize your image folder
 
 Image sequences from each experiment should be collected into one folder. These images, should have the same name format. 
 
@@ -160,9 +160,9 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
 * In the [bayesian/detect_1.py](./detector/bayesian/detect_1.py#L11-L18), modify the paths of your _Image_ folder descirbed in **2.1** (**line 11~38**, indicated in the comments):
 
-  `folder_images = <your iamge path>`
+  `folder_images = <your image path>`
 
-    load the trained model to count the total number, we put the model in the directory _/trained_models/bayesian/best_model.pth_. Copy and paste the location of this file into the path:
+    Load the trained model to count the total number, we put the model in the directory _/trained_models/bayesian/best_model.pth_. Copy and paste the location of this file into the path:
 
     `model_baylos = <the path of trained VGG19 model>`
 
