@@ -30,12 +30,18 @@ def rename(folder_images):  # sourcery skip: raise-specific-error
 
 def preprocess(folder_images, output_folder, num_exps):
     print("Preprocessing data structure...")
+
+    # Ensure the output folder exists
+    os.makedirs(output_folder, exist_ok=True)
+
     for i in range(1, num_exps + 1):
         folder = f"{folder_images}/Experiment_{i}"
-        if not os.path.exists(f"{output_folder}/start"):
-            os.mkdir(f"{output_folder}/start")
-        if not os.path.exists(f"{output_folder}/end"):
-            os.mkdir(f"{output_folder}/end")
+
+        # Ensure 'start' and 'end' folders exist
+        os.makedirs(f"{output_folder}/start", exist_ok=True)
+        os.makedirs(f"{output_folder}/end", exist_ok=True)
+
+        # Copy files from folder_images to the start or end folder in output
         for file in os.listdir(folder):
             if "t02" in file:
                 original = f"{folder}/{file}"
@@ -45,7 +51,9 @@ def preprocess(folder_images, output_folder, num_exps):
                 original = f"{folder}/{file}"
                 target = f"{output_folder}/end/{file}"
                 shutil.copyfile(original, target)
+
     start = f"{output_folder}/start/"
     end = f"{output_folder}/end/"
+    
     print("Done with preprocessing.")
     return start, end

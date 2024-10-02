@@ -1,8 +1,24 @@
-# "DETECTOR": AI-based Organoid Detection for Automated FIS Analysis
+# DETECTOR: AI-based Organoid Detection for Automated FIS Analysis
 
-Implementation the software in paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://)** (Cell reports Medicine, Accepted)
+Implementation the software in paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(24)00234-9)** (Cell Reports Medicine)
 
 This code serves two purposes: firstly, it accurately counts the total number of organoids in each image using Bayesian Crowd Counting, resolving the issue of segmentation inaccuracy in dense organoids. Secondly, it identifies swelling organoids resulting from gene editing using YOLOv7.
+
+## Citation
+
+If you use this code for your research, please cite our paper:
+
+```bibtex
+@article{bulcaenPrimeEditingFunctionally2024,
+  title = {Prime Editing Functionally Corrects Cystic Fibrosis-Causing {{CFTR}} Mutations in Human Organoids and Airway Epithelial Cells},
+  author = {Bulcaen, Mattijs and Kortleven, Phéline and Liu, Ronald B. and Maule, Giulia and Dreano, Elise and Kelly, Mairead and Ensinck, Marjolein M. and Thierie, Sam and Smits, Maxime and Ciciani, Matteo and Hatton, Aurelie and Chevalier, Benoit and Ramalho, Anabela S. and family=Solvas, given=Xavier Casadevall, prefix=i, useprefix=false and Debyser, Zeger and Vermeulen, François and Gijsbers, Rik and Sermet-Gaudelus, Isabelle and Cereseto, Anna and Carlon, Marianne S.},
+  date = {2024-05-01},
+  journaltitle = {Cell Reports Medicine},
+  issn = {2666-3791},
+  doi = {10.1016/j.xcrm.2024.101544},
+  url = {https://www.cell.com/cell-reports-medicine/abstract/S2666-3791(24)00234-9}
+}
+```
 
 ## Overview
 
@@ -11,8 +27,8 @@ This code serves two purposes: firstly, it accurately counts the total number of
 </p>
 
 **a)** Organoids swelling with CFTR gene editing;
-**b)** Bayersian Crowd Counting startegy for dense organoids & Swelling detction;
-**c)** Swelling derecion results
+**b)** Bayesian Crowd Counting for dense organoids & Swelling detection;
+**c)** Swelling detection results
 
 ## Datasets and Trained models
 
@@ -20,15 +36,9 @@ This code serves two purposes: firstly, it accurately counts the total number of
 
 [Datasets for training](https://)
 
-[Trained models](https://)
+Examples of the images used for testing can be found in the [data](./data/Input/) folder.
 
-## Citation
-
-If you use this code for your research, please cite our paper:
-
-```bibtex
-{bibtex of the paper}
-```
+Our trained models are saved in the [trained_models](./data/trained_models/) folder.
 
 ## Installation and Run
 ### 1. Environment Setup
@@ -90,6 +100,19 @@ for example:
 **exp1 242en435-CF N1303K 20220921timeseries-01**_s01t03.tif
 
 **exp1 242en435-CF N1303K 20220921timeseries-01**_s01t04.tif
+
+....
+
+**exp1 242en435-CF N1303K 20220921timeseries-01**_s01t013.tif
+
+**exp1 242en435-CF N1303K 20220921timeseries-01**_s02t01.tif
+
+**exp1 242en435-CF N1303K 20220921timeseries-01**_s02t02.tif
+
+....
+
+**exp1 242en435-CF N1303K 20220921timeseries-01**_s02t013.tif
+
 ....
 
 And for this experiment, "
@@ -133,11 +156,11 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
 ****************
 
-* In the `bayersian/detect_1.py`, modify the paths of your _Image_ folder descirbed in **2.1** (line 11~38, indicated in the comments):
+* In the `bayesian/detect_1.py`, modify the paths of your _Image_ folder descirbed in **2.1** (line 11~38, indicated in the comments):
 
   `folder_images = <your iamge path>`
 
-    load the trained model to count the total number, we put the model in the directory _/trained_models/bayersian/best_model.pth_. Copy and paste the location of this file into the path:
+    load the trained model to count the total number, we put the model in the directory _/trained_models/bayesian/best_model.pth_. Copy and paste the location of this file into the path:
 
     `model_baylos = <the path of trained VGG19 model>`
 
@@ -145,11 +168,6 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
     `output_folder = <out path your want>`
 
-- Change the _"prefix"_ : 
-
-  use `prefix.append` to add all _"prefix"_ in the image names (descirbed in **2.1**). For example:
-    
-      prefix.append("exp159 242en435-CF N1303K 20220921timeseries-01")
 
 * In the `yolov7/detect_2.py` (line 377~381, indicated in the comments):, copy and paste the paths of your _Output_ folder:
 
@@ -170,12 +188,12 @@ Now, the modifications are completed.
 *****************
 
 **Option1** 
-### Run script directly (Test version)
+### Run script directly 
 
-`sudo sh run.sh`
+`sh run.sh`
 
 **Option2**
-### Run on terminal:
+### Manually run on terminal:
 
  open the terminal in this folder and
 
@@ -196,6 +214,11 @@ Run the code:
 The indications are shown on the terminal.
 
 >
+### Update notes:
+*****************
+- (**2024**) we use `writer.close()` to replace `writer.save()` with new version of Pandas version >=1.2.0. If you encounter any problems, please reinstall pandas refer to the [Pandas document](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html).
+
+- (**2024**) prefix inputs are not required in the new version of Pandas.
 
 ### Known issues
 
@@ -207,9 +230,9 @@ The brightness of the microscopic image will influence the results of total numb
 
 The position shift will influence the swelling organoids detection and will make fewer organoids detected. 
 
-### 2 Fonts
+~~### 2 Fonts~~
 
-Fonts in different OS have different routes and may need to modify in `bayersian/utils/count.py `  (line 52~55)
+~~Fonts in different OS have different routes and may need to modify in `bayesian/utils/count.py `  (line 52~55)~~
 
 ### 3 Internet connection
 
@@ -217,7 +240,7 @@ The network needs to stay on and be able to connect to Google to download initia
 
 
 
-## Acknowledgements and model training guidance:
+## Acknowledgements and model re-training guidance:
 
 * [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 * [https://github.com/ZhihengCV/Bayesian-Crowd-Counting](https://github.com/ZhihengCV/Bayesian-Crowd-Counting)

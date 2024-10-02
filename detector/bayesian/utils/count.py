@@ -50,9 +50,12 @@ def docount(folder_start, model_path, folder_output):
         img = Image.open(folder_start + filename)
         draw = ImageDraw.Draw(img)
         # font = ImageFont.truetype(<font-file>, <font-size>)
-        # font = ImageFont.truetype("/usr/share/fonts/carlito/Carlito-Bold.ttf",
-        #                           20)  #font in Linux
-        font = ImageFont.truetype('Arial Rounded Bold', 20)  #Font in MacOS/Win
+        try:
+            # Use 'Arial' as a default font which is generally available on most systems
+            font = ImageFont.truetype("Arial", 20)
+        except IOError:
+            # Fallback to the default font in case 'Arial' is not available
+            font = ImageFont.load_default()
         # draw.text((x, y),"Sample Text",(r,g,b))
         draw.text((1, 5), "Start", (0, 0, 0), font=font)
         draw.text((1, 25), "Est.: {:.0f}".format(count), (0, 0, 0), font=font)
@@ -76,6 +79,7 @@ def docount(folder_start, model_path, folder_output):
         'Total': count_list,
     })
     df.to_excel(writer, index=False, header=True)
-    writer.save()
+    # writer.save()
+    writer.close()
     print(f"Result of total amount saved in {folder_output}/excel.")
     # return count_list

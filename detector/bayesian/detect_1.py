@@ -11,20 +11,20 @@ image_size = 512
 #-----------------------------------------------------------------------------------
 # ! Modify the paths and file name prefixs here
 # folder with all the images
-folder_images = "./Input"
+folder_images = "../../data/Input"
 # path for the model to count organoids
-model_baylos = "./trained_models/bayersian/best_model.pth"
+model_baylos = "../../data/trained_models/bayesian/best_model.pth"
 # where you want to store the results
-output_folder = "./Output"
+output_folder = "../../data/Output"
 
-prefix = []
+# prefix = []
 # prefix.append("242-CF PE FIS1 20210705 timelapse-01")
 # prefix.append("Exp 87 242-CF PE FIS2 20211007 tl 2h-01")
 # prefix.append("202112089 MB exp100 242-CF PE time series2-01")
 # prefix.append("20220215 MB exp111 242-CF PE timelapse-01")
 # prefix.append("20220506 MB 242-CF PE timelapse 2h-01-Image Export-01")
 # prefix.append("242-CF PE FIS 20220511 exp129-try2 time-01")
-prefix.append("429-CF en 242-CF PE FIS 20220602 tl-01")
+# prefix.append("429-CF en 242-CF PE FIS 20220602 tl-01")
 # prefix.append("429-CF en 242-CF PE FIS 20220630 time series-01")
 # prefix.append("exp146 426-CF en 242-CF PE FIS 20220706 timelapse-01")
 # prefix.append("exp147 439-CF and 079-CF L227R-N1303K Hz n1 20220719 timeseries-01")

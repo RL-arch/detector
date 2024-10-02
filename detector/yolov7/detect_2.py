@@ -127,7 +127,7 @@ def detect(opt):
                     n = (det[:, -1] == c).sum()  # detections per class
                     # add to string
                     s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "
-                    obj_dict = {'Name': p.name, 'Count': int(n)}
+                    obj_dict = {'Name': p.name, 'Swelling': int(n)}
                     obj_list.append(obj_dict.copy())
 
                 # Write results
@@ -281,7 +281,8 @@ def do_detect(weights_i, sources_i, img_size_i, conf_thres_i, output_dir_i):
 
     df = pd.DataFrame.from_dict(yolo_list)
     df.to_excel(writer, index=False, header=True)
-    writer.save()
+    # writer.save()
+    writer.close()
     print("Excel saved in /excel.")
     print(yolo_list)
 
@@ -363,12 +364,13 @@ def finalize(output_dir_o):
         merged = df1.merge(df2, on="Name", how="left")
         merged.fillna(0, inplace=True)
 
-    writer = pd.ExcelWriter(f"{output_dir_o}/excel/results.xlsx",
+    writer = pd.ExcelWriter(f"{output_dir_o}/excel/final results.xlsx",
                             engine='xlsxwriter')
 
     merged.to_excel(writer, index=False, header=True)
-    writer.save()
-    print("Final Excel saved as 'results.xlsx'.")
+    # writer.save()
+    writer.close()
+    print("Final Excel saved as 'final results.xlsx'.")
 
 
 if __name__ == '__main__':
@@ -376,8 +378,8 @@ if __name__ == '__main__':
     conf_thred = 0.3
     # ! modify the paths here:
     # --------------------------------------------------------------------------------------
-    model_yolov7 = './trained_models/yolov7/last.pt'
-    output_folder = './Output'
+    model_yolov7 = '../../data/trained_models/yolov7/last.pt'
+    output_folder = '../../data/Output'
     # --------------------------------------------------------------------------------------
     diff_images = f'{output_folder}/diff_images'
     do_detect(model_yolov7, diff_images, img_size, conf_thred, output_folder)
