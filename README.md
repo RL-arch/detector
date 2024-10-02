@@ -158,7 +158,7 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
 ****************
 
-* In the `bayesian/detect_1.py`, modify the paths of your _Image_ folder descirbed in **2.1** (line 11~38, indicated in the comments):
+* In the [bayesian/detect_1.py](./detector/bayesian/detect_1.py#L11-L18), modify the paths of your _Image_ folder descirbed in **2.1** (**line 11~38**, indicated in the comments):
 
   `folder_images = <your iamge path>`
 
@@ -171,7 +171,7 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
     `output_folder = <out path your want>`
 
 
-* In the `yolov7/detect_2.py` (line 377~381, indicated in the comments):, copy and paste the paths of your _Output_ folder:
+* In the [yolov7/detect_2.py](./detector/yolov7/detect_2.py#L377-L383) (**line 377~383**, indicated in the comments):, copy and paste the paths of your _Output_ folder:
 
   `output_folder = <same as in detect_1.py>`
 
