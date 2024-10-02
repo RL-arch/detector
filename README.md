@@ -34,7 +34,7 @@ If you use this code for your research, please cite our paper:
 
 [Images for detection](https://)
 
-[Datasets for training](https://)
+[Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
 
 Examples of the images used for testing can be found in the [data](./data/Input/) folder.
 
