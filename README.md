@@ -32,11 +32,9 @@ If you use this code for your research, please cite our paper:
 
 ## Datasets and Trained models
 
-[Images for detection](https://)
+[Images for detection](https://): Examples of the images used for testing can be found in the [data](./data/Input/) folder.
 
 [Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
-
-Examples of the images used for testing can be found in the [data](./data/Input/) folder.
 
 Examples of the results can be found in the [data/Output](./data/Output/) folder.
 
