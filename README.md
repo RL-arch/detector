@@ -254,7 +254,7 @@ The position shift will influence the swelling organoids detection and will make
 
 The network needs to stay on and be able to connect to Google to download initial files like model weights.
 
-## 4 python not found
+### 4 python not found
 
 When using option 1: change all "python"-mentions to "python3" in the "run.sh" file.
 When using option 2: change all "python"-commands to "python3"
