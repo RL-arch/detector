@@ -32,19 +32,30 @@ If you use this code for your research, please cite our paper:
 
 ## Datasets and Trained models
 
-[Images for detection](https://): Examples of the images used for testing can be found in the [data](./data/Input/) folder.
+Images for detection: Examples of the images used for testing can be found in the [data/input](./data/Input/) folder.
 
 [Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
 
 Examples of the results can be found in the [data/Output](./data/Output/) folder.
 
-Trained models please download from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing). The folder organization is same as the [data/trained_models](./data/trained_models/) folder.
+Trained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
 
 ## Installation and Run
-### 1. Environment Setup
+### 1. Script Retrieval
+****************
+ 
+**If git is installed on the operating system**
+
+`git clone https://github.com/RL-arch/detector.git`
+
+**Manual download**
+
+The scripts can be manually downloaded via this [link](https://github.com/RL-arch/detector/archive/refs/heads/main.zip).
+
+### 2. Environment Setup
 ****************
 
-There are two ways to set up your environment:
+There are three ways to set up your environment:
 
 **Option1**
 
@@ -84,7 +95,7 @@ pip install seaborn thop
 
 >
 
-### 2. Prepare the data you want to analyze
+### 3. Prepare the data you want to analyze
 ***************************************************
 2.1 Organize your image folder
 
@@ -103,15 +114,13 @@ for example:
 
 ....
 
-**exp1 242en435-CF N1303K 20220921timeseries-01**_s01t013.tif
-
 **exp1 242en435-CF N1303K 20220921timeseries-01**_s02t01.tif
 
 **exp1 242en435-CF N1303K 20220921timeseries-01**_s02t02.tif
 
 ....
 
-**exp1 242en435-CF N1303K 20220921timeseries-01**_s02t013.tif
+**exp1 242en435-CF N1303K 20220921timeseries-01**_s96t013.tif
 
 ....
 
@@ -151,10 +160,12 @@ If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
 ********************************
 
-### 3. Modify the codes
+### 4. Modify the codes
 ### (Operations under _/detector_ folder)
 
 ****************
+
+Modification of the codes is only necessary if another input folder, output folder or the use of other pre-trained models is preferred.
 
 * In the [bayesian/detect_1.py](./detector/bayesian/detect_1.py#L11-L18), modify the paths of your _Image_ folder descirbed in **2.1** (**line 11~38**, indicated in the comments):
 
@@ -182,11 +193,16 @@ Now, the modifications are completed.
 >
 
 
-### 4. Run the codes
+### 5. Run the codes
 ### (Operations under _/detector_ folder)
 
 *****************
 
+First of all, the conda environment needs to be activated.
+
+`conda activate <your name>`
+
+then there are two options to run the code.
 **Option1** 
 ### Run script directly 
 
@@ -238,7 +254,10 @@ The position shift will influence the swelling organoids detection and will make
 
 The network needs to stay on and be able to connect to Google to download initial files like model weights.
 
+## 4 python not found
 
+When using option 1: change all "python"-mentions to "python3" in the "run.sh" file.
+When using option 2: change all "python"-commands to "python3"
 
 ## Acknowledgements and model re-training guidance:
 
