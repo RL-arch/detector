@@ -57,9 +57,9 @@ The scripts can be manually downloaded via this [link](https://github.com/RL-arc
 
 There are three ways to set up your environment:
 
-**Option1**
+~~**Option1**~~
 
-`conda env create -f environment.yml`
+~~`conda env create -f environment.yml`~~
 
 **Option2 (Recommended)**
 
