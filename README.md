@@ -1,6 +1,6 @@
 # DETECTOR: AI-based Organoid Detection for Automated FIS Analysis
 
-Implementation the software in paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(24)00234-9)** (Cell Reports Medicine)
+Implementation for the paper - **[Prime editing functionally corrects Cystic Fibrosis-causing CFTR mutations in human organoids and airway epithelial cells](https://www.cell.com/cell-reports-medicine/fulltext/S2666-3791(24)00234-9)** (Cell Reports Medicine)
 
 This code serves two purposes: firstly, it accurately counts the total number of organoids in each image using Bayesian Crowd Counting, resolving the issue of segmentation inaccuracy in dense organoids. Secondly, it identifies swelling organoids resulting from gene editing using YOLOv7.
 
@@ -190,7 +190,7 @@ The program will process the subfolders as:
 
 The script can be run from an IDE such as [PyCharm](https://www.jetbrains.com/pycharm/) or [VSCode](https://code.visualstudio.com/). 
 
-(This can be done by starting the IDE from the Anaconda navigator home page, while the conda environment is specified after "on" in top of the screen.  )
+(This can be done by starting the IDE from the Anaconda navigator home page, while the conda environment is specified after "on" in top of the screen. see: [Using IDEs](https://docs.anaconda.com/working-with-conda/ide-tutorials/) )
 
 ### Option1
 
@@ -297,13 +297,13 @@ Total time taken: 0.219 minutes
 
 *****************
 
-### 1 Data quality
+### 1. Data quality
 
 The brightness of the microscopic image will influence the results of total number estimation. When the image condition is dark and dense crowd, the total number estimate can be less than actual.
 
 The position shift will influence the swelling organoids detection and will make fewer organoids detected.
 
-### 2 Internet connection
+### 2. Internet connection
 
 The network needs to stay on and be able to connect to Google to download initial files like model weights. (see [google_utils.py](./utils/google_utils.py))
 
