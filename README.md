@@ -22,13 +22,17 @@ If you use this code for your research, please cite our paper:
 
 ## Overview
 
-<p align="center">
-<img src=20240422_Detector_GitHub-scheme-1.png>
-</p>
+![Detector Scheme](./figs/20240422_Detector_GitHub-scheme-1.png)
 
 **a)** Organoids swelling with CFTR gene editing;
 **b)** Bayesian Crowd Counting for dense organoids & Swelling detection;
 **c)** Swelling detection results
+
+****************
+
+* We solved the issue of segmentation inaccuracy in dense organoids by using [Bayesian Crowd Counting](https://openaccess.thecvf.com/content_ICCV_2019/papers/Ma_Bayesian_Loss_for_Crowd_Count_Estimation_With_Point_Supervision_ICCV_2019_paper.pdf).
+* The swelling organoids are detected using [YOLOv7](https://arxiv.org/abs/2207.02696), a real-time object detection algorithm, achieved the state-of-the-art performance in the detection of dense organoids.
+* This code is optimized for fast interference on CPU, and across Windows/Mac/Linux platforms.
 
 ## Datasets and Trained models
 
@@ -38,71 +42,78 @@ Images for detection: Examples of the images used for testing can be found in th
 
 Examples of the results can be found in the [data/Output](./data/Output/) folder.
 
-Trained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
+Trained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
 
 ## Installation and Run
-### 1. Script Retrieval
-****************
- 
-**If git is installed on the operating system**
 
+### 1. Script Retrieval
+
+****************
+
+**If git is installed on the operating system**
+(Git can be installed by this [link](https://git-scm.com)).
 `git clone https://github.com/RL-arch/detector.git`
 
-**Manual download**
+### Manual download
 
-The scripts can be manually downloaded via this [link](https://github.com/RL-arch/detector/archive/refs/heads/main.zip).
+The scripts can be downloaded via this [link](https://github.com/RL-arch/detector/archive/refs/heads/main.zip).
 
 ### 2. Environment Setup
+
 ****************
 
-There are three ways to set up your environment:
+The code is written in Python and depends on a conda environment. Such an environment can easily run in [Anaconda](https://anaconda.cloud/getting-started-with-conda-environments). You can use [Automatic dependencies management](https://www.jetbrains.com/help/pycharm/managing-dependencies.html) to automatically install the required packages listed in [requirements.txt](./requirements.txt).
 
-~~**Option1**~~
+There are several options to run the conda environment:
 
-~~`conda env create -f environment.yml`~~
+### Option1
 
-**Option2 (Recommended)**
+On Windows, you could simply import the environment file [environment.yaml](./environment.yaml) on the Anaconda Navigator: see [Importing an environment](https://docs.anaconda.com/navigator/tutorials/manage-environments/).
 
-create an Anaconda environment with the name you want:
+In a Terminal, the following command can be used to create a new conda environment:
 
-`conda create --name <your name>`
+`conda env create -f environment.yaml`
 
-then, install the packages required:
+### Option2
+
+create a conda environment with **python 3.10**:
+
+`conda create --name <your name> python=3.10`
+
+activate the environment:
+
+`conda activate <your name>`
+
+and install the required packages:
 
 `pip install -r requirements.txt`
 
-as we tested with Intel Macbook Pro 2020, xlsxwriter also needed to be installed:
-
-`conda install -c conda-forge xlsxwriter`
-
-**Option3**
-
-use Docker:
-
-``` bash
-# create the docker container, you can change the share memory size if you have more.
-nvidia-docker run --name yolov7 -it -v your_coco_path/:/coco/ -v your_code_path/:/yolov7 --shm-size=64g nvcr.io/nvidia/pytorch:21.08-py3
-
-# apt install required packages
-apt update
-apt install -y zip htop screen libgl1-mesa-glx
-
-# pip install required packages
-pip install seaborn thop
-
-
-```
-
->
+If an error occurs, any missing packages can be installed through `pip install <package>`, according to the error message.
 
 ### 3. Prepare the data you want to analyze
-***************************************************
-2.1 Organize your image folder
 
-Image sequences from each experiment should be collected into one folder. These images, should have the same name format. 
+****************
+
+### 3.1 Input image format
+
+****************
+
+Our input images were exported from [ZEISS ZEN](https://www.zeiss.com/microscopy/en/products/software/zeiss-zen.html) software, exported in **(512,512) .tif**.
+
+But our program can process other image formats (jpg, png, etc), and resize the input image size to (512, 512) if they are not. (See [resize_images()](./organize/preprocess.py#L6))
+
+This can be adjusted in [run.py, line 16](run.py#L16).
 
 
-for example: 
+### 3.2 Organize file names
+
+****************
+
+This program aims to process time-lapse sequences; the images should have the format:
+`prefix_s{}t{}`;
+where `s` follows sequence number and `t` follows the time number.
+
+for example:
 
 **exp1 242en435-CF N1303K 20220921timeseries-01**_s01t01.tif
 
@@ -124,28 +135,14 @@ for example:
 
 ....
 
-And for this experiment, "
-**exp1 242en435-CF N1303K 20220921timeseries-01** " will be the _"prefix"_
+And for this experiment, 
+" **exp1 242en435-CF N1303K 20220921timeseries-01** " will be the _"prefix"_
 
-Then, put these experiment data folders into **one folder**,
-for example: "/Input"
+****************
 
-In the _/Input_ there are 3 folders: _exp1, exp 2, exp 3_
+The test image names are following the format from ZEISS software, and with the experiment time of 2h;
 
-    Image
-        |
-        |__exp1
-        |
-        |__exp2
-        |
-        |__exp3
-
->
-
-2.2 Organize your image filenames
-
-~~The test image names are following the format from ZEISS software, and with the experiment time of 2h; ~~
-If your experiment time is 1h, please use `/data/rename.py` to rename the files.
+If your experiment time is 1h, please use [/data/rename.py](./data/rename.py) to rename the files.
 
 Therefore, the names are with suffix _s...t01_ to _s...t13_
 
@@ -156,82 +153,142 @@ If your experiment is 2h: the image sequences are t01 t02 t03 t04 t05 t06 t07 t0
 
 If your experiment is 1h: the image sequences are t00 t02 t04 t06 t08 t10 t12
 
->
+****************
 
-********************************
+### 3.3 Collect into input folder
 
-### 4. Modify the codes
-### (Operations under _/detector_ folder)
+Then, we suggest organizing the data from one experiment into **one folder** and collect all those into **one input folder**. Our program will automatically rename the subfolders as **"Experiment_1, Experiment_2, ..."**
+
+For example: "/Input"
+
+In the _/Input_ there are 3 folders: _exp 1 One, exp 2 Deux, exp 3 Drie_
+
+    Input
+        |
+        |__exp 1 One
+        |
+        |__exp 2 Deux
+        |
+        |__exp 3 Drie
+
+The program will process the subfolders as:
+
+    Input
+        |
+        |__Experiment_1
+        |
+        |__Experiment_2
+        |
+        |__Experiment_3
 
 ****************
 
-Modification of the codes is only necessary if another input folder, output folder or the use of other pre-trained models is preferred.
-
-* In the [bayesian/detect_1.py](./detector/bayesian/detect_1.py#L11-L18), modify the paths of your _Image_ folder descirbed in **2.1** (**line 11~38**, indicated in the comments):
-
-  `folder_images = <your image path>`
-
-    Load the trained model to count the total number, we put the model in the directory _/trained_models/bayesian/best_model.pth_. Copy and paste the location of this file into the path:
-
-    `model_baylos = <the path of trained VGG19 model>`
-
-    _Output_ folder you want:
-
-    `output_folder = <out path your want>`
+### 4. Run the [run.py](./run.py)
 
 
-* In the [yolov7/detect_2.py](./detector/yolov7/detect_2.py#L377-L383) (**line 377~383**, indicated in the comments):, copy and paste the paths of your _Output_ folder:
+****************
 
-  `output_folder = <same as in detect_1.py>`
+The script can be run from an IDE such as [PyCharm](https://www.jetbrains.com/pycharm/) or [VSCode](https://code.visualstudio.com/). 
 
-    load the trained model to count the swelling organoids, which is a yolov7 model, we put the model in the directory _/trained_models/yolov7/last.pt_. Copy and paste the location of this file into the path:
+(This can be done by starting the IDE from the Anaconda navigator home page, while the conda environment is specified after "on" in top of the screen.  )
 
-    `model_yolov7 = <the path of trained yolov7 model>`
+### Option1
 
-Now, the modifications are completed.  
+Run Code: ▶️
 
->
+In the IDE, open the detector package, open [run.py](run.py) and run with the Run Code button.
 
 
-### 5. Run the codes
-### (Operations under _/detector_ folder)
+### Option2
 
-*****************
-
-First of all, the conda environment needs to be activated.
+In the terminal the conda environment can be activated via:
 
 `conda activate <your name>`
 
-then there are two options to run the code.
-**Option1** 
-### Run script directly 
+then, open the terminal in the [root](./) folder of the package (where `run.py` located) and run the code:
 
-`sh run.sh`
+`python run.py`
 
-**Option2**
-### Manually run on terminal:
 
- open the terminal in this folder and
 
-`cd bayesian`
 
-Then, run the code:
+There will be a GUI asking for the paths to the input folder, the output folder and the pre-trained models. When the right paths are selected and saved, they will automatically be available in the [config.txt](config.txt) file. After saving, the window can be closed and the program will continue to run the code. 
 
-`python detect_1.py`
+<p align="center">
+<img src=./figs/GUI.png>
+</p>
 
-Then go to the directory _/yolov7_
 
-`cd .. && cd yolov7`
+### 5. Check Results
 
-Run the code:
+Check the output in your defined Output folder. An example of an output image:
 
-`python detect_2.py`
+<p align="center">
+<img src=./figs/example_output.png>
+</p>
 
-The indications are shown on the terminal.
+The statistics are saved in **.xlsx** files in the **/excel** folder.
 
->
-### Update notes:
+Within the terminal, the progress of the code can be monitored as well as the total runtime. Example output:
+
+```markdown
+Skipping exp151 426-CF L227R 20220902 timeseries-01_s10t07.tif - already at target size (512, 512)
+
+...
+
+Checked and resized images to (512, 512) where necessary.
+Your folder Experiment_1 is renamed as Experiment_1.
+Images are from 1 experiment(s) in total
+Preprocessing data structure...
+Done with preprocessing.
+Calculating frame differences...
+Frame difference images are saved at /data/Output/diff_images.
+Counting total amounts of organoids in the images...
+Processing file exp151 426-CF L227R 20220902 timeseries-01_s09t02.tif
+Processing file xxx
+Image saved.
+Result of total amount saved in /data/Output/excel.
+Namespace(weights='data/trained_models/model_detect.pt', source='/data/Output/diff_images', img_size=512, conf_thres=0.3, iou_thres=0.45, device='cpu', view_img=False, save_txt=False, save_conf=False, nosave=False, classes=None, agnostic_nms=False, augment=False, update=False, project='/data/Output', name='img3', exist_ok=False, no_trace=False)
+
+YOLOR  2024-10-30 torch 2.1.0+cpu CPU
+
+Fusing layers... 
+
+Model Summary: 819 layers, 164816216 parameters, 0 gradients, 225.6 GFLOPS
+ Convert model to Traced-model...
+ traced_script_module saved! 
+ model is traced!
+
+512x512 102 Growing-cellss, Done. (0.743s)
+ The image with the result is saved in: detector_v2.0\data\Output\img3\exp151 426-CF L227R 20220902 timeseries-01_s09t02_diff.png
+512x512 96 Growing-cellss, Done. (0.597s)
+ The image with the result is saved in: detector_v2.0\data\Output\img3\exp151 426-CF L227R 20220902 timeseries-01_s10t02_diff.png
+512x512 120 Growing-cellss, Done. (0.559s)
+ The image with the result is saved in: detector_v2.0\data\Output\img3\exp151 426-CF L227R 20220902 timeseries-01_s11t02_diff.png
+Done. (1.976s)
+Excel saved in /excel.
+[{'Name': 'exp151 426-CF L227R 20220902 timeseries-01_s09t02_diff.png', 'Swelling': 102}, {'Name': 'exp151 426-CF L227R 20220902 timeseries-01_s10t02_diff.png', 'Swelling': 96}, {'Name': 'exp151 426-CF L227R 20220902 timeseries-01_s11t02_diff.png', 'Swelling': 120}]
+
+Save at /data/Output/final_image/exp151 426-CF L227R 20220902 timeseries-01_s09t02.tif
+...
+
+Final images saved! 
+
+...
+
+Final images saved! 
+cache in /data/Output released.
+Final Excel saved as 'final results.xlsx'.
+Total time taken: 0.219 minutes
+```
+
+
+### Update notes
+
 *****************
+
+- We tested the code on Linux, Mac OS and Windows. For any issues, please create an issue topic under the repository.
+
 - (**2024**) we use `writer.close()` to replace `writer.save()` with new version of Pandas version >=1.2.0. If you encounter any problems, please reinstall pandas refer to the [Pandas document](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html).
 
 - (**2024**) prefix inputs are not required in the new version of Pandas.
@@ -244,24 +301,14 @@ The indications are shown on the terminal.
 
 The brightness of the microscopic image will influence the results of total number estimation. When the image condition is dark and dense crowd, the total number estimate can be less than actual.
 
-The position shift will influence the swelling organoids detection and will make fewer organoids detected. 
+The position shift will influence the swelling organoids detection and will make fewer organoids detected.
 
-~~### 2 Fonts~~
+### 2 Internet connection
 
-~~Fonts in different OS have different routes and may need to modify in `bayesian/utils/count.py `  (line 52~55)~~
+The network needs to stay on and be able to connect to Google to download initial files like model weights. (see [google_utils.py](./utils/google_utils.py))
 
-### 3 Internet connection
+## Acknowledgements and model re-training guidance
 
-The network needs to stay on and be able to connect to Google to download initial files like model weights.
+- [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- [https://github.com/ZhihengCV/Bayesian-Crowd-Counting](https://github.com/ZhihengCV/Bayesian-Crowd-Counting)
 
-### 4 python not found
-
-When using option 1: change all "python"-mentions to "python3" in the "run.sh" file.
-When using option 2: change all "python"-commands to "python3"
-
-## Acknowledgements and model re-training guidance:
-
-* [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-* [https://github.com/ZhihengCV/Bayesian-Crowd-Counting](https://github.com/ZhihengCV/Bayesian-Crowd-Counting)
-
->

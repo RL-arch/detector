@@ -1,0 +1,4 @@
+folder_images = "./data/Input"
+output_folder = "./data/Output"
+model_baylos = "./data/trained_models/model_count.pth"
+model_yolov7 = "./data/trained_models/model_detect.pt"
