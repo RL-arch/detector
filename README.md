@@ -42,7 +42,7 @@ Images for detection: Examples of the images used for testing can be found in th
 
 Examples of the results can be found in the [data/Output](./data/Output/) folder.
 
-Trained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
+**The tool requires models to be inputted!** If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG) or self-made models. The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
 
 ## Installation and Run
 
@@ -188,9 +188,10 @@ The program will process the subfolders as:
 
 ****************
 
-The script can be run from an IDE such as [PyCharm](https://www.jetbrains.com/pycharm/) or [VSCode](https://code.visualstudio.com/). 
+The script can be run from an IDE such as [VSCode](https://code.visualstudio.com/) or [PyCharm](https://www.jetbrains.com/pycharm/). 
 
 (This can be done by starting the IDE from the Anaconda navigator home page, while the conda environment is specified after "on" in top of the screen. see: [Using IDEs](https://docs.anaconda.com/working-with-conda/ide-tutorials/) )
+(When using VSCode, also download the [python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 ### Option1
 
