@@ -42,7 +42,9 @@ Images for detection: Examples of the images used for testing can be found in th
 
 Examples of the results can be found in the [data/Output](./data/Output/) folder.
 
-**The tool requires models to be inputted!** If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG) or self-made models. The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
+**The tool requires models to be inputted!** 
+
+If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG) or self-made models. The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder.
 
 ## Installation and Run
 
