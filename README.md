@@ -64,15 +64,14 @@ The scripts can be downloaded via this [link](https://github.com/RL-arch/detecto
 
 ****************
 
-The code is written in Python and depends on a conda environment. Such an environment can easily run in Anaconda. The documentation of Anaconda can be found [here](https://anaconda.cloud/getting-started-with-conda-environments) to learn more about how to use conda environments. 
+The code is written in Python and depends on a conda environment. Such an environment can easily run in Anaconda. The documentation of Anaconda can be found [here](https://anaconda.cloud/getting-started-with-conda-environments) to learn more about the use of conda environments. 
 If Anaconda was never used before, the simplest option is to download [Anaconda navigator](https://www.anaconda.com/products/navigator).
-By default, the [Automatic dependencies management](https://www.jetbrains.com/help/pycharm/managing-dependencies.html) will automatically install the required packages listed in [requirements.txt](./requirements.txt).
 
 There are several options to run the conda environment:
 
 ### Option1
 
-On Windows, you could simply import the environment file [environment.yaml](./environment.yaml) on the Anaconda Navigator: see [Importing an environment](https://docs.anaconda.com/navigator/tutorials/manage-environments/).
+On Windows, you could simply import the environment file [environment.yaml](./environment.yaml) int the Anaconda Navigator application that was installed in the previous step: see [Importing an environment](https://docs.anaconda.com/navigator/tutorials/manage-environments/).
 
 Alternatively, in a Terminal, the following command can be used to create a new conda environment:
 
