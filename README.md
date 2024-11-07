@@ -38,13 +38,13 @@ If you use this code for your research, please cite our paper:
 
 Images for detection: Examples of the images used for testing can be found in the [data/input](./data/Input/) folder.
 
-[Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
-
 Examples of the results can be found in the [data/Output](./data/Output/) folder.
 
 **The tool requires models to be inputted!** 
 
-If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder. Alternatively, the user can train it's own models. 
+If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder. 
+
+Alternatively, the user can train it's own models. However, this will require a lot of input data and a high-end GPU to do. The datasets that we used for training the models are available in [Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
 
 ## Installation and Run
 
@@ -64,7 +64,9 @@ The scripts can be downloaded via this [link](https://github.com/RL-arch/detecto
 
 ****************
 
-The code is written in Python and depends on a conda environment. Such an environment can easily run in [Anaconda](https://anaconda.cloud/getting-started-with-conda-environments). You can use [Automatic dependencies management](https://www.jetbrains.com/help/pycharm/managing-dependencies.html) to automatically install the required packages listed in [requirements.txt](./requirements.txt).
+The code is written in Python and depends on a conda environment. Such an environment can easily run in Anaconda. The documentation of Anaconda can be found [here](https://anaconda.cloud/getting-started-with-conda-environments) to learn more about how to use conda environments. 
+If Anaconda was never used before, the simplest option is to download [Anaconda navigator](https://www.anaconda.com/products/navigator).
+By default, the [Automatic dependencies management](https://www.jetbrains.com/help/pycharm/managing-dependencies.html) will automatically install the required packages listed in [requirements.txt](./requirements.txt).
 
 There are several options to run the conda environment:
 
@@ -72,7 +74,7 @@ There are several options to run the conda environment:
 
 On Windows, you could simply import the environment file [environment.yaml](./environment.yaml) on the Anaconda Navigator: see [Importing an environment](https://docs.anaconda.com/navigator/tutorials/manage-environments/).
 
-In a Terminal, the following command can be used to create a new conda environment:
+Alternatively, in a Terminal, the following command can be used to create a new conda environment:
 
 `conda env create -f environment.yaml`
 
@@ -192,7 +194,7 @@ The program will process the subfolders as:
 
 The script can be run from an IDE such as [VSCode](https://code.visualstudio.com/) or [PyCharm](https://www.jetbrains.com/pycharm/). 
 
-(This can be done by starting the IDE from the Anaconda navigator home page, while the conda environment is specified after "on" in top of the screen. see: [Using IDEs](https://docs.anaconda.com/working-with-conda/ide-tutorials/) )
+(This can be done by starting the IDE from the Anaconda navigator home page (after downloading it), while the conda environment is specified after "on" in top of the screen. see: [Using IDEs](https://docs.anaconda.com/working-with-conda/ide-tutorials/) )
 (When using VSCode, also download the [python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 ### Option1
