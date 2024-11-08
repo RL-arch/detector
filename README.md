@@ -44,7 +44,7 @@ Examples of the results can be found in the [data/Output](./data/Output/) folder
 
 If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder. 
 
-Alternatively, the user can train it's own models. However, this will require a lot of input data and a high-end GPU to do. The datasets that we used for training the models are available in [Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
+Alternatively, more experienced users can train their own models. However, this will require a lot of input data and a high-end GPU to do. The datasets that we used for training the models are available in [Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
 
 ## Installation and Run
 
@@ -52,32 +52,35 @@ Alternatively, the user can train it's own models. However, this will require a 
 
 ****************
 
-**If git is installed on the operating system**
-(Git can be installed by this [link](https://git-scm.com)).
-`git clone https://github.com/RL-arch/detector.git`
-
 ### Manual download
 
 The scripts can be downloaded via this [link](https://github.com/RL-arch/detector/archive/refs/heads/main.zip).
+After manual retrieval, the folder needs to be extracted before it can be used. 
+
+### Git clone
+**If git is installed on the operating system**
+(Git can be installed by this [link](https://git-scm.com)).
+`git clone https://github.com/RL-arch/detector.git`
 
 ### 2. Environment Setup
 
 ****************
 
-The code is written in Python and depends on a conda environment. Such an environment can easily run in Anaconda. The documentation of Anaconda can be found [here](https://anaconda.cloud/getting-started-with-conda-environments) to learn more about the use of conda environments. 
-If Anaconda was never used before, the simplest option is to download [Anaconda navigator](https://www.anaconda.com/products/navigator).
-
 There are several options to run the conda environment:
 
 ### Option1
+The code is written in Python and depends on a conda environment. Such an environment can easily run in Anaconda.  
+On windows, if Anaconda was never used before, the simplest option is to download [Anaconda navigator](https://www.anaconda.com/products/navigator).
+After opening Anaconda navigator, you could simply import the environment file [environment.yaml](./environment.yaml) that is located in the detector-main folder and was downloaded within step 1. See: [Importing an environment](https://docs.anaconda.com/navigator/tutorials/manage-environments/).
+For the interested reader, The documentation of using conda environments within Anaconda can be found [here](https://anaconda.cloud/getting-started-with-conda-environments).
 
-On Windows, you could simply import the environment file [environment.yaml](./environment.yaml) int the Anaconda Navigator application that was installed in the previous step: see [Importing an environment](https://docs.anaconda.com/navigator/tutorials/manage-environments/).
+### Option2
 
-Alternatively, in a Terminal, the following command can be used to create a new conda environment:
+In a terminal, the following command can be used to create a new conda environment:
 
 `conda env create -f environment.yaml`
 
-### Option2
+### Option3
 
 create a conda environment with **python 3.10**:
 
@@ -191,17 +194,18 @@ The program will process the subfolders as:
 
 ****************
 
-The script can be run from an IDE such as [VSCode](https://code.visualstudio.com/) or [PyCharm](https://www.jetbrains.com/pycharm/). 
-
-(This can be done by starting the IDE from the Anaconda navigator home page (after downloading it), while the conda environment is specified after "on" in top of the screen. see: [Using IDEs](https://docs.anaconda.com/working-with-conda/ide-tutorials/) )
-(When using VSCode, also download the [python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
-
 ### Option1
-
-Run Code: ▶️
-
-In the IDE, open the detector package, open [run.py](run.py) and run with the Run Code button.
-
+The script can be run from an IDE. We recommend to use [VSCode](https://code.visualstudio.com/).
+To execute the script:
+  - when using VSCode, install the [python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  - Open Anaconda Navigator after downloading VSCode
+  - Navigate to the "Home" tab
+  - Check whether your environment name is shown in the top of the screen after: "all applications on"
+  - Look for VSCode within this tab and launch the IDE.
+  - Open the unzipped detector-main folder within VSCode. Find [here](https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces) how to do this.
+  - Upon opening the folder, select the run.py file from the dropdown menu
+  - Run the code via the ▶️ button.
+To learn more about using IDEs within anaconda navigator, click [here](https://docs.anaconda.com/working-with-conda/ide-tutorials/)
 
 ### Option2
 
@@ -214,16 +218,32 @@ then, open the terminal in the [root](./) folder of the package (where `run.py` 
 `python run.py`
 
 
+### 5. Select the right folders
 
 
-There will be a GUI asking for the paths to the input folder, the output folder and the pre-trained models. When the right paths are selected and saved, they will automatically be available in the [config.txt](config.txt) file. After saving, the window can be closed and the program will continue to run the code. 
+****************
+
+Upon running, there will be a GUI asking for the paths to the input folder, the output folder and the pre-trained models. 
+An example of an input and output folder can be found in the detector-main folder under "data". 
+Don't select the "experiment1" in the input. Just select the input folder. 
+
+For the pre-trained models, as explained, two options exist.
+1 Using our pre-trained models which can be found on [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG).
+2 Using your own pre-trained models. 
+
+
+After saving, the window should be closed and the program will continue to run the code. Wait carefully as it might take a while to run the code. 
 
 <p align="center">
 <img src=./figs/GUI.png>
 </p>
 
 
-### 5. Check Results
+
+### 6. Check Results
+
+
+****************
 
 Check the output in your defined Output folder. An example of an output image:
 
