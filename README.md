@@ -42,7 +42,7 @@ Examples of the results can be found in the [data/Output](./data/Output/) folder
 
 **The tool requires models to be inputted!** 
 
-If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder. 
+If the user prefers to use our pre-trained models, those can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/OZZRPG). The organization of the folder is analogous to the [data/trained_models](./data/trained_models/) folder. 
 
 Alternatively, more experienced users can train their own models. However, this will require a lot of input data and a high-end GPU to do. The datasets that we used for training the models are available in [Datasets for training](https://drive.google.com/drive/folders/1LzXNgAhEYSCjYba_eXknL6RFqJa7Zac1?usp=drive_link)
 
@@ -228,7 +228,7 @@ An example of an input and output folder can be found in the detector-main folde
 Don't select the "experiment1" in the input. Just select the input folder. 
 
 For the pre-trained models, as explained, two options exist.
-1 Using our pre-trained models which can be found on [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/GD17UG).
+1 Using our pre-trained models which can be found on [Google Drive](https://drive.google.com/drive/folders/1jLQce54EvSB6dyfhKNpMT_4n9YugL6sl?usp=sharing) or [Harvard Dataverse](https://doi.org/10.7910/DVN/OZZRPG).
 2 Using your own pre-trained models. 
 
 
